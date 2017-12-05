@@ -2,7 +2,7 @@ const yargs = require('yargs');
 const geocode = require('./geoAddress');
 const geoweatheradd = require('./weathergeoadd');
 const app = require('express');
-
+const port = process.env.Port || 3000;
 const callback = app();
 
 callback.set('view engine', 'ejs');
@@ -36,6 +36,6 @@ geocode.geocode(uri,(error,results) =>{
     });
     });
   }
-  callback.listen(3000);
+  callback.listen(port);
   console.log('listening');
 });
